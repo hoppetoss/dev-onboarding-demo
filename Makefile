@@ -22,13 +22,16 @@ stop: ## Stop all services
 build: ## Build the Docker image only
 	docker build -t onboarding-demo:local .
 
-test: ## Run tests
-	pip install -q -r app/requirements.txt
-	pytest tests/ -v
+.venv:
+	python3 -m venv .venv
 
-lint: ## Lint the code
-	pip install -q ruff
-	ruff check app/
+test: .venv ## Run tests
+	.venv/bin/pip install -q -r app/requirements.txt
+	.venv/bin/pytest tests/ -v
+
+lint: .venv ## Lint the code
+	.venv/bin/pip install -q ruff
+	.venv/bin/ruff check app/
 
 clean: ## Remove all containers and volumes
 	docker compose down -v --remove-orphans
