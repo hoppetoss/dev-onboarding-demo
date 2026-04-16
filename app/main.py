@@ -76,3 +76,7 @@ def metrics():
 def hello(name: str):
     logger.info(f"Greeting requested for: {name}")
     return {"message": f"Hello, {name}! Welcome to the team."}
+
+@app.get("/bla")
+def bla():
+    return {"message": "Hello World"}

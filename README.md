@@ -45,6 +45,7 @@ make clean   # Remove containers + volumes
 | GET /metrics   | Prometheus metrics               |
 | GET /hello/:name | Greeting (try it!)             |
 | GET /docs      | Interactive API documentation    |
+| GET /bla      | Hello World    |
 
 ## CI/CD
 
