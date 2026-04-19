@@ -33,5 +33,8 @@ lint: .venv ## Lint the code
 	.venv/bin/pip install -q ruff
 	.venv/bin/ruff check app/
 
+logs: ## Tail logs from all running services
+	docker compose logs -f api
+
 clean: ## Remove all containers and volumes
 	docker compose down -v --remove-orphans
